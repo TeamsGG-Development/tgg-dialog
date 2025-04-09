@@ -156,3 +156,5 @@ To customize the theme:
 This project is based on work originally created by Byte Labs Project. The original codebase has been modified and enhanced while maintaining the MIT license terms.
 
 Original Copyright © 2023 Byte Labs Project
+
+[Original product](https://github.com/Byte-Labs-Studio/bl_dialog)
