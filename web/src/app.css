@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html, body, #root {
+    @apply bg-transparent;
+  }
+}
+
+:root {
+  --primary-color: #00959a;
+  --primary-color-dark: #007a7f;
+  --primary-color-light: #33aeb3;
+  --background-color: rgba(0, 0, 0, 0.45);
+  --background-hover-color: rgba(0, 0, 0, 0.55);
+  --text-primary-color: rgba(255, 255, 255, 0.95);
+  --text-secondary-color: #00959a;
+  --border-opacity: 0.7;
+  --background-opacity: 0.25;
+  --shadow-color: rgba(0, 149, 154, 0.25);
+  --shadow-light-color: rgba(0, 149, 154, 0.15);
+  --button-bg-color: rgba(0, 149, 154, 0.25);
+  --gradient-dark: rgba(0, 0, 0, 0.5);
+  --gradient-mid: rgba(0, 0, 0, 0.15);
+  --gradient-transparent: transparent;
+  --white: #FFFFFF;
+  --white-opacity-95: rgba(255, 255, 255, 0.95);
+  --border-light-color: rgba(255, 255, 255, 0.04);
+  
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  background-color: transparent !important;
+  color: var(--text-primary-color);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background: transparent;
+}
+
+.dialog-background {
+  background-color: var(--background-color);
+  border-radius: 8px;
+  padding: 1vw;
+  margin-top: 0.3rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  border-left: 3px solid rgba(var(--primary-color), var(--border-opacity));
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+  animation: fadeIn 0.3s ease-out;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.dialog-background::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, var(--shadow-light-color) 0%, var(--gradient-transparent) 20%);
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+.dialog-button {
+  background-color: var(--background-color);
+  border-radius: 6px;
+  padding: 0.5vw 0.9vw;
+  font-weight: 500;
+  outline: none;
+  color: var(--text-primary-color);
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--border-light-color);
+  min-width: 0;
+}
+
+.dialog-button:hover {
+  background-color: var(--background-hover-color);
+  cursor: pointer;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  border-color: var(--shadow-color);
+}
+
+.dialog-button:hover span {
+  color: var(--primary-color-light);
+}
+
+.dialog-button::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background-color: var(--primary-color);
+  opacity: var(--background-opacity);
+  transition: all 0.2s ease;
+}
+
+.dialog-button:hover::after {
+  width: 100%;
+  opacity: 0.07;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
